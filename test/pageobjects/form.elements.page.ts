@@ -20,6 +20,7 @@ class FormElements extends OpenPage {
     get singleMaritalStatusRB () {return $('[id="single"]')};
     get marriedMaritalStatusRB () {return $('[id="married"]')};
 
+    get socialSecurityField() { return $('[class="row social-security-field"]') };
     get socialSecurityOverrideTB () {return $('[id="social-security-override"]')};
 
     get adjDefaultValuesLink () {return $('//*[@id="retirement-form"]/div[4]/div[1]/div/div/div/ul/li[2]/a')};
@@ -38,8 +39,6 @@ class FormElements extends OpenPage {
     get saveChangesButton () {return $('//*[@id="default-values-form"]/div[2]/div/div[1]/button')};
 
     get submitButton () { return $('[class="dsg-btn-primary btn-block"]') };
-
-    get socialSecurityField() { return $('.row.social-security-field') };
 
     /**
      * define or overwrite page methods
