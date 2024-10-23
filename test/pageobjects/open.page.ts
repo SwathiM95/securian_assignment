@@ -9,6 +9,6 @@ export default class OpenPage {
     * Opens the page to test
     */
     public open () {
-        return browser.url('https://www.securian.com/insights-tools/retirement-calculator.html');
+        return browser.url('');
     };
 };

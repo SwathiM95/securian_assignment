@@ -4,6 +4,7 @@ class FormElements extends OpenPage {
     /**
      * define elements
      */
+    get calculatorIntroSection () { return $('//*[@id="calculator-intro-section"]/h2')};
     get currentAgeTB () { return $('[id="current-age"]') };
     get retirementAgeTB () { return $('[id="retirement-age"]') };
     get currentIncomeTB () { return $('[id="current-income"]') };
@@ -26,6 +27,7 @@ class FormElements extends OpenPage {
     get adjDefaultValuesLink () {return $('//*[@id="retirement-form"]/div[4]/div[1]/div/div/div/ul/li[2]/a')};
 
     // adjust default values form
+    get defaultCalculatorTitle () { return $('[id="default-values-modal-title"]')};
     get additionalIncomeTB () {return $('[id="additional-income"]')};
     get retirementDurationTB () {return $('[id="retirement-duration"]')};
 
@@ -40,6 +42,9 @@ class FormElements extends OpenPage {
 
     get submitButton () { return $('[class="dsg-btn-primary btn-block"]') };
 
+    //get resultsMessage () {return $('//*[@id="result-message"]')};
+    get resultsChart () {return $('[id="results-chart"]')};
+
     /**
      * define or overwrite page methods
      */
@@ -47,19 +52,24 @@ class FormElements extends OpenPage {
         return super.open();
     };
 
+    async verifIfElementIsDisplayed(element: ChainablePromiseElement) {
+        const isDisplayed = await element.isDisplayed()
+        expect(isDisplayed).toBe(true)
+    }
+
     // Function to click on textbox and set/enter value
-    async enterValue(element: ChainablePromiseElement, value: string) {
+    async enterValue(element: ChainablePromiseElement, value: number) {
         // Clear the textbox value
         await element.clearValue();
         // Click on the textbox to focus
-        await element.click();
+        await element.doubleClick();
         // Set value to textbox
         await element.setValue(value);
     };
 
     // Function to call submit button click
     async submit () {
-        await this.submitButton.click();
+        this.submitButton.click();
     };
 
     // Function to check the CSS property is none or not
@@ -67,6 +77,7 @@ class FormElements extends OpenPage {
         const displayProperty = await this.socialSecurityField.getCSSProperty('display');
         return displayProperty.value === 'none';
     };
+
 };
 
 export default new FormElements();

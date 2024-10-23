@@ -1,0 +1,22 @@
+{
+    "currentAge" : 36,
+    "retirementAge" : 60,
+    "curIncome" : 100000,
+    "required" : {
+        "spouseIncome" : 110000
+    },
+    "notRequired" : {
+        "spouseIncome" : 0
+    },
+    "curTotalSavings": 500000, 
+    "curAnnSavings": 10, 
+    "savingsIncRate": 2,
+    "sociSecFlag": true,
+    "maritalStatus":"Married",
+    "overrideAmt": 50000,
+    "addIncome": 100000,
+    "retDuration": 20,
+    "retAnnIncome": 70,
+    "proRetROI": 10,
+    "postRetROI": 12
+}

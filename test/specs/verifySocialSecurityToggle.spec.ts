@@ -5,6 +5,11 @@ describe("Verify Social Security fields", function () {
         // Open the form page
         await FormElements.open();
 
+        // Assert if Calculator page is loaded
+        await FormElements.verifIfElementIsDisplayed(
+            FormElements.calculatorIntroSection
+        );
+
         // Scroll to the Social Security label
         await FormElements.socialSecurityLabel.scrollIntoView();
 
